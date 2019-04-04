@@ -17,4 +17,6 @@ RUN git clone https://github.com/darlinghq/darling.git \
  && cd build \
  && cmake .. \
  && make -j $(nproc) \
- && make install
+ && make install \
+ && ../../ \
+ && rm -rf darling
