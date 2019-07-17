@@ -10,13 +10,16 @@ RUN apt update && apt install -y cmake clang bison flex xz-utils \
 
 RUN git clone https://github.com/darlinghq/darling.git \
  && cd darling \
- && git checkout 9fc61ce83101f7005e1bf29cf184a9b4f907d51f \
+ && git checkout a567e86cb72ddfb00f53c33ecb205d0670db7e2b \
  && git submodule init \
  && git submodule update \
+ && cd src/external/foundation \
+ && git checkout 64c8ccbf6e1b734ef84d78c812da18597f211724 \
+ && cd ../../../ \
  && mkdir build \
  && cd build \
  && cmake .. \
  && make -j $(nproc) \
  && make install \
- && ../../ \
+ && cd ../../ \
  && rm -rf darling
